@@ -1,4 +1,6 @@
-// src\app\components\ThemeSwitcher.jsx
+// src\app\components\ThemeSwitcher.tsx
+
+"use client";
 
 import { useContext } from "react";
 import { PrimeReactContext } from "primereact/api";

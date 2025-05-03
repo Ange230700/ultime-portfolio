@@ -5,6 +5,7 @@ import { PrimeReactProvider } from "primereact/api";
 import { Geist, Geist_Mono } from "next/font/google";
 import "primeicons/primeicons.css";
 import "@/app/globals.css";
+import Navbar from "@/app/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +39,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <PrimeReactProvider>{children}</PrimeReactProvider>
+        <PrimeReactProvider>
+          <header>
+            <Navbar />
+          </header>
+          {children}
+        </PrimeReactProvider>
       </body>
     </html>
   );
