@@ -16,14 +16,15 @@ export default function ProjectsPage() {
         <div className="flex flex-wrap justify-center gap-8">
           {projects.map((project) => {
             const header = (
-              <Image
-                priority
-                alt={project.title}
-                src={project.image}
-                width={200}
-                height="auto"
-                className="object-cover"
-              />
+              <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+                <Image
+                  priority
+                  alt={project.title}
+                  src={project.image}
+                  fill
+                  className="object-cover"
+                />
+              </div>
             );
 
             return (
@@ -32,13 +33,13 @@ export default function ProjectsPage() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="md:w-25rem block transition-transform duration-200 hover:scale-105"
+                className="md:w-25rem block w-full transition-transform duration-200 hover:scale-105 sm:w-[20rem]"
               >
                 <Card
                   title={project.title}
                   subTitle={project.subtitle}
                   header={header}
-                  className="h-full"
+                  className="h-full w-full"
                 >
                   <p className="m-0">{project.description}</p>
                 </Card>

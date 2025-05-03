@@ -3,5 +3,9 @@
 "use client";
 
 export default function Home() {
-  return <div>home</div>;
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <h1 className="mb-4 text-3xl font-bold">Accueil</h1>
+    </div>
+  );
 }
