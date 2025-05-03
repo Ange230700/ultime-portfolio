@@ -58,17 +58,19 @@ type SkillItem = { label: string; icon?: string };
 
 export default function SkillsPage() {
   const renderSkill = (skill: SkillItem | string) => {
+    const baseProps = { className: "text-lg" as const };
     if (typeof skill === "string") {
-      return <Chip key={skill} label={skill} />;
+      return <Chip key={skill} label={skill} {...baseProps} />;
     }
     const customIcon = iconMap[skill.label];
     if (customIcon) {
       return (
         <Chip
           key={skill.label}
+          className="text-lg"
           template={
-            <div className="flex items-center gap-2 py-[6px]">
-              <span>{customIcon}</span>
+            <div className="flex items-center gap-2 py-[6px] text-lg">
+              <span className="text-xl">{customIcon}</span>
               <span>{skill.label}</span>
             </div>
           }
@@ -76,9 +78,16 @@ export default function SkillsPage() {
       );
     }
     if (skill.icon) {
-      return <Chip key={skill.label} label={skill.label} icon={skill.icon} />;
+      return (
+        <Chip
+          key={skill.label}
+          label={skill.label}
+          icon={skill.icon}
+          {...baseProps}
+        />
+      );
     }
-    return <Chip key={skill.label} label={skill.label} />;
+    return <Chip key={skill.label} label={skill.label} {...baseProps} />;
   };
 
   const techStacks = [
@@ -134,7 +143,7 @@ export default function SkillsPage() {
         <h2 className="mb-4 text-xl font-bold">Tech Stacks</h2>
         {techStacks.map((stack) => (
           <div key={stack.label} className="mb-4">
-            <h3 className="mb-2 text-lg font-semibold">{stack.label}</h3>
+            <h3 className="mb-2 font-semibold">{stack.label}</h3>
             <div className="flex flex-wrap gap-4">
               {stack.skills.map((skill) => renderSkill(skill))}
             </div>
