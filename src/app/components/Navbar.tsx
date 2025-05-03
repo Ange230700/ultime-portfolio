@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Menubar } from "primereact/menubar";
 import { MenuItem } from "primereact/menuitem";
-import { Button } from "primereact/button";
 import ThemeSwitcher from "@/app/components/ThemeSwitcher";
 
 type NavbarMenuItem = MenuItem & {
@@ -29,8 +28,12 @@ export default function Navbar() {
   ];
 
   const start = (
-    <Link href="/" passHref>
-      <Button label="Ange KOUAKOU" text className="text-6xl font-bold" />
+    <Link
+      href="/"
+      passHref
+      className="text-4xl font-bold transition-colors duration-200 hover:text-blue-300"
+    >
+      Ange KOUAKOU
     </Link>
   );
 

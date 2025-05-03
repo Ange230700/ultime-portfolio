@@ -36,6 +36,8 @@ export default function ThemeSwitcher({
       icon={icon}
       onClick={handleThemeChange}
       aria-label={isLight ? "Switch to dark theme" : "Switch to light theme"}
+      rounded
+      outlined
     />
   );
 }
