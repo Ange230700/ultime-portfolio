@@ -1,3 +1,7 @@
 /* src\app\globals.css */
 
 @import "tailwindcss";
+
+footer .pi {
+  font-size: 2rem;
+}
