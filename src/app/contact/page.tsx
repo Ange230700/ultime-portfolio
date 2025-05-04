@@ -74,13 +74,13 @@ export default function ContactPage() {
               htmlFor="firstName"
               className="text-900 mb-2 block font-medium"
             >
-              First Name
+              Prénom
             </label>
             <InputText
               id="firstName"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              placeholder="Your first name"
+              placeholder="Votre prénom"
               className="w-full"
             />
           </div>
@@ -90,13 +90,13 @@ export default function ContactPage() {
               htmlFor="lastName"
               className="text-900 mb-2 block font-medium"
             >
-              Last Name
+              Nom
             </label>
             <InputText
               id="lastName"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              placeholder="Your last name"
+              placeholder="Votre nom"
               className="w-full"
             />
           </div>
@@ -104,27 +104,27 @@ export default function ContactPage() {
 
         <div className="field mb-4">
           <label htmlFor="email" className="text-900 mb-2 block font-medium">
-            Email
+            Adresse e-mail
           </label>
           <InputText
             id="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Your email address"
+            placeholder="Votre adresse e-mail"
             className="w-full"
           />
         </div>
 
         <div className="field mb-4">
           <label htmlFor="subject" className="text-900 mb-2 block font-medium">
-            Subject
+            Sujet
           </label>
           <InputText
             id="subject"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
-            placeholder="Subject of your message"
+            placeholder="Sujet de votre message"
             className="w-full"
           />
         </div>
@@ -137,18 +137,20 @@ export default function ContactPage() {
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Your message"
-            rows={5}
+            placeholder="Votre message"
+            rows={10}
             className="w-full"
           />
         </div>
 
-        <Button
-          type="submit"
-          label="Send Message"
-          icon="pi pi-envelope"
-          className="w-full"
-        />
+        <div className="mx-20">
+          <Button
+            type="submit"
+            label="Envoyer"
+            icon="pi pi-envelope"
+            className="w-full"
+          />
+        </div>
       </form>
     </div>
   );
