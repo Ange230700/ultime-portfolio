@@ -64,34 +64,42 @@ export default function ContactPage() {
     <div className="flex flex-1 flex-col p-4">
       <Toast ref={toast} />
       <h1 className="mb-4 text-3xl font-bold">Contact</h1>
-      <form onSubmit={handleSubmit} className="p-fluid">
-        <div className="field mb-4">
-          <label
-            htmlFor="firstName"
-            className="text-900 mb-2 block font-medium"
-          >
-            First Name
-          </label>
-          <InputText
-            id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            placeholder="Your first name"
-            className="w-full"
-          />
-        </div>
+      <form
+        onSubmit={handleSubmit}
+        className="p-fluid mx-auto max-w-2xl space-y-6"
+      >
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="field mb-4">
+            <label
+              htmlFor="firstName"
+              className="text-900 mb-2 block font-medium"
+            >
+              First Name
+            </label>
+            <InputText
+              id="firstName"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Your first name"
+              className="w-full"
+            />
+          </div>
 
-        <div className="field mb-4">
-          <label htmlFor="lastName" className="text-900 mb-2 block font-medium">
-            Last Name
-          </label>
-          <InputText
-            id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            placeholder="Your last name"
-            className="w-full"
-          />
+          <div className="field mb-4">
+            <label
+              htmlFor="lastName"
+              className="text-900 mb-2 block font-medium"
+            >
+              Last Name
+            </label>
+            <InputText
+              id="lastName"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Your last name"
+              className="w-full"
+            />
+          </div>
         </div>
 
         <div className="field mb-4">
