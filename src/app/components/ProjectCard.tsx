@@ -25,12 +25,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   );
 
   const footer = (
-    <div className="flex justify-center gap-1">
-      <Link href={project.link}>
+    <div className="flex justify-center gap-2">
+      <Link href={project.link} target="_blank">
         <Button
           label="Voir projet"
-          icon="pi pi-arrow-right"
+          icon="pi pi-external-link"
           className="w-full"
+        />
+      </Link>
+      <Link href={`/projects/${project.id}`}>
+        <Button
+          label="Détails"
+          icon="pi pi-info-circle"
+          className="w-full"
+          severity="secondary"
         />
       </Link>
     </div>
