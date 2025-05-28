@@ -5,18 +5,7 @@ import nodemailer from "nodemailer";
 import validator from "validator";
 import isDisposable from "is-disposable-email";
 import dns from "dns/promises";
-import crypto from "crypto";
-
-const pendingConfirmations = new Map<
-  string,
-  {
-    firstName: string;
-    lastName: string;
-    email: string;
-    subject: string;
-    message: string;
-  }
->();
+import jwt from "jsonwebtoken";
 
 // Read SMTP configuration and recipient email from environment variables
 const {
@@ -26,11 +15,20 @@ const {
   SMTP_PASS,
   RECEIVER_EMAIL,
   NEXT_PUBLIC_APP_URL,
+  JWT_SECRET,
 } = process.env;
 
-if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !RECEIVER_EMAIL) {
+if (
+  !SMTP_HOST ||
+  !SMTP_PORT ||
+  !SMTP_USER ||
+  !SMTP_PASS ||
+  !RECEIVER_EMAIL ||
+  !NEXT_PUBLIC_APP_URL ||
+  !JWT_SECRET
+) {
   throw new Error(
-    "Missing one or more SMTP environment variables: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, RECEIVER_EMAIL or NEXT_PUBLIC_APP_URL env variable",
+    "Missing one or more SMTP environment variables: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, RECEIVER_EMAIL or NEXT_PUBLIC_APP_URL env variable or JWT_SECRET one",
   );
 }
 
@@ -85,14 +83,11 @@ export async function POST(request: Request) {
   }
 
   // 4) Create a one‐time confirmation token
-  const token = crypto.randomBytes(20).toString("hex");
-  pendingConfirmations.set(token, {
-    firstName,
-    lastName,
-    email,
-    subject,
-    message,
-  });
+  const token = jwt.sign(
+    { firstName, lastName, email, subject, message },
+    JWT_SECRET!,
+    { expiresIn: "1h" },
+  );
 
   try {
     const confirmUrl = `${NEXT_PUBLIC_APP_URL}/api/contact?token=${token}`;
@@ -132,31 +127,31 @@ export async function POST(request: Request) {
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const token = url.searchParams.get("token")!;
-  const entry = pendingConfirmations.get(token);
 
-  if (!entry) {
+  try {
+    const payload = jwt.verify(token, JWT_SECRET!) as Record<string, string>;
+
+    // envoyer le mail à vous-même
+    await transporter.sendMail({
+      from: `${payload.firstName} ${payload.lastName} <${payload.email}>`,
+      to: RECEIVER_EMAIL,
+      subject: payload.subject || "Nouveau message de contact",
+      text: [
+        `Prénom : ${payload.firstName}`,
+        `Nom : ${payload.lastName}`,
+        `E-mail : ${payload.email}`,
+        `Sujet : ${payload.subject}`,
+        `Message :\n${payload.message}`,
+      ].join("\n"),
+    });
+
+    return NextResponse.redirect(
+      `${NEXT_PUBLIC_APP_URL}/contact?confirmed=true`,
+    );
+  } catch {
     return NextResponse.json(
       { success: false, error: "Jeton invalide ou expiré." },
       { status: 400 },
     );
   }
-
-  // Send the actual “you’ve got a message” email to yourself
-  await transporter.sendMail({
-    from: `${entry.firstName} ${entry.lastName} <${entry.email}>`,
-    to: RECEIVER_EMAIL,
-    subject: entry.subject || "Nouveau message de contact",
-    text: [
-      `Prénom : ${entry.firstName}`,
-      `Nom : ${entry.lastName}`,
-      `E-mail : ${entry.email}`,
-      `Sujet : ${entry.subject}`,
-      `Message :\n${entry.message}`,
-    ].join("\n"),
-  });
-
-  pendingConfirmations.delete(token);
-
-  // Optionally render a “thank you” page
-  return NextResponse.redirect(`${NEXT_PUBLIC_APP_URL}/contact?confirmed=true`);
 }
