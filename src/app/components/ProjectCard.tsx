@@ -26,7 +26,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
   const footer = (
     <Link href={project.link}>
-      <Button label="Voir plus" icon="pi pi-arrow-right" className="w-full" />
+      <Button label="Voir projet" icon="pi pi-arrow-right" className="w-full" />
     </Link>
   );
 
@@ -36,7 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       subTitle={project.subtitle}
       header={header}
       footer={footer}
-      className="transform transition hover:scale-105 md:w-[25rem]"
+      className="transform transition md:w-[25rem]"
     >
       <p className="m-0">{project.description}</p>
     </Card>

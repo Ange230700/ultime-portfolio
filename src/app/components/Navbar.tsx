@@ -60,7 +60,7 @@ export default function Navbar() {
     <Link
       href="/"
       passHref
-      className="text-2xl font-bold transition-colors duration-200"
+      className="text-2xl font-bold transition-colors duration-200 hover:text-[var(--primary-color)]"
     >
       Ange KOUAKOU
     </Link>
