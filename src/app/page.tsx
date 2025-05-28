@@ -3,10 +3,11 @@
 "use client";
 
 import Link from "next/link";
-import { Card } from "primereact/card";
-import Image from "next/image";
+import { ProjectCard } from "@/app/components/ProjectCard";
+import projects from "@/data/projects";
 
 export default function Home() {
+  const featuredProjects = projects.slice(0, 2);
   return (
     <div className="mx-auto flex max-w-4xl flex-1 flex-col space-y-10 p-6">
       {/* Hero Section */}
@@ -37,44 +38,12 @@ export default function Home() {
       {/* Featured Projects Preview */}
       <section>
         <h2 className="mb-6 text-center text-3xl font-semibold">
-          Projets récents
+          Projets stars
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {/* Example card, adjust mapping as needed */}
-          <Link
-            href="/projects"
-            className="transform transition hover:scale-105"
-          >
-            <Card className="h-full">
-              <div className="relative mb-4 h-40 w-full">
-                <Image
-                  src="/images/project-demo.jpg"
-                  alt="Projet Démo"
-                  fill
-                  className="rounded-t-lg object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold">Titre du projet</h3>
-              <p>Brève description du projet mis en avant.</p>
-            </Card>
-          </Link>
-          <Link
-            href="/projects"
-            className="transform transition hover:scale-105"
-          >
-            <Card className="h-full">
-              <div className="relative mb-4 h-40 w-full">
-                <Image
-                  src="/images/project-demo2.jpg"
-                  alt="Projet Démo"
-                  fill
-                  className="rounded-t-lg object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold">Deuxième projet</h3>
-              <p>Une autre description accrocheuse.</p>
-            </Card>
-          </Link>
+          {featuredProjects.map((proj) => (
+            <ProjectCard key={proj.title} project={proj} />
+          ))}
         </div>
       </section>
 
