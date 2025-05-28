@@ -8,6 +8,7 @@ import projects, { type Project } from "@/data/projects";
 import { ProgressSpinner } from "primereact/progressspinner";
 import Link from "next/link";
 import { Button } from "primereact/button";
+import { Chip } from "primereact/chip";
 
 export default function ProjectDetailsPage() {
   const { projectId } = useParams();
@@ -52,6 +53,15 @@ export default function ProjectDetailsPage() {
   return (
     <div className="mx-auto max-w-4xl space-y-6 p-6">
       <h1 className="text-4xl font-bold">{project.title}</h1>
+
+      <div>
+        <h3 className="mt-6 text-xl font-semibold">Technologies</h3>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <Chip key={tech} label={tech} />
+          ))}
+        </div>
+      </div>
 
       <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-md">
         <Image
