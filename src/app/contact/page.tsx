@@ -7,6 +7,7 @@ import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
+import { useSearchParams } from "next/navigation";
 
 export default function ContactPage() {
   const [firstName, setFirstName] = useState("");
@@ -14,7 +15,10 @@ export default function ContactPage() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [isPendingConfirm, setIsPendingConfirm] = useState(false);
   const toast = useRef<Toast | null>(null);
+  const searchParams = useSearchParams();
+  const isConfirmed = searchParams.get("confirmed") === "true";
 
   type ToastSeverity =
     | "success"
@@ -33,6 +37,7 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsPendingConfirm(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -43,22 +48,34 @@ export default function ContactPage() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        showToast("success", "Message sent", "Thank you for getting in touch!");
-        // Clear form
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setSubject("");
-        setMessage("");
+        showToast(
+          "info",
+          "Vérifiez votre boîte de réception",
+          "Un e-mail de confirmation vous a été envoyé.",
+        );
       } else {
-        throw new Error(data.error ?? "Failed to send message");
+        throw new Error(data.error ?? "Échec de l'envoi du message");
       }
     } catch (error: unknown) {
       const messageText =
-        error instanceof Error ? error.message : "An unexpected error occurred";
+        error instanceof Error
+          ? error.message
+          : "Une erreur inattendue est survenue";
       showToast("error", "Error", messageText);
+      setIsPendingConfirm(false);
     }
   };
+
+  if (isConfirmed) {
+    return (
+      <div className="flex flex-1 flex-col items-center justify-center p-4">
+        <h1 className="mb-4 text-3xl font-bold">Merci&nbsp;!</h1>
+        <p className="text-lg">
+          Votre adresse a été confirmée et votre message a bien été envoyé.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-1 flex-col p-4">
@@ -82,6 +99,8 @@ export default function ContactPage() {
               onChange={(e) => setFirstName(e.target.value)}
               placeholder="Votre prénom"
               className="w-full"
+              disabled={isPendingConfirm}
+              required
             />
           </div>
 
@@ -98,6 +117,8 @@ export default function ContactPage() {
               onChange={(e) => setLastName(e.target.value)}
               placeholder="Votre nom"
               className="w-full"
+              disabled={isPendingConfirm}
+              required
             />
           </div>
         </div>
@@ -113,6 +134,8 @@ export default function ContactPage() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Votre adresse e-mail"
             className="w-full"
+            disabled={isPendingConfirm}
+            required
           />
         </div>
 
@@ -126,6 +149,8 @@ export default function ContactPage() {
             onChange={(e) => setSubject(e.target.value)}
             placeholder="Sujet de votre message"
             className="w-full"
+            disabled={isPendingConfirm}
+            required
           />
         </div>
 
@@ -140,15 +165,18 @@ export default function ContactPage() {
             placeholder="Votre message"
             rows={10}
             className="w-full"
+            disabled={isPendingConfirm}
+            required
           />
         </div>
 
         <div className="mx-20">
           <Button
             type="submit"
-            label="Envoyer"
-            icon="pi pi-envelope"
+            label={isPendingConfirm ? "En attente..." : "Envoyer"}
+            icon={isPendingConfirm ? "pi pi-spin pi-spinner" : "pi pi-envelope"}
             className="w-full"
+            disabled={isPendingConfirm}
           />
         </div>
       </form>
