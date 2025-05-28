@@ -31,8 +31,15 @@ export default function ContactPage() {
     severity: ToastSeverity,
     summary: string,
     detail: string,
+    sticky = false,
   ) => {
-    toast.current?.show({ severity, summary, detail, life: 3000 });
+    toast.current?.show({
+      severity,
+      summary,
+      detail,
+      sticky,
+      ...(sticky ? {} : { life: 3000 }),
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -52,6 +59,7 @@ export default function ContactPage() {
           "info",
           "Vérifiez votre boîte de réception",
           "Un e-mail de confirmation vous a été envoyé.",
+          true,
         );
       } else {
         throw new Error(data.error ?? "Échec de l'envoi du message");
@@ -61,7 +69,7 @@ export default function ContactPage() {
         error instanceof Error
           ? error.message
           : "Une erreur inattendue est survenue";
-      showToast("error", "Error", messageText);
+      showToast("error", "Erreur", messageText);
       setIsPendingConfirm(false);
     }
   };

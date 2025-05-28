@@ -100,7 +100,7 @@ export async function POST(request: Request) {
       <p>Bonjour ${firstName},</p>
       <p>Merci de nous contacter. 
          Cliquez sur le lien ci-dessous pour confirmer que c’est bien votre adresse :</p>
-      <a href="${confirmUrl}">Confirmer mon e-mail</a>
+      <a href="${confirmUrl}" target="_blank" rel="noopener noreferrer">Confirmer mon e-mail</a>
       <p>Si ce n’était pas vous, ignorez simplement ce message.</p>
     `,
     };
