@@ -15,7 +15,10 @@ const iconMap: Record<number, string> = {
 
 export default function Footer() {
   return (
-    <footer className="flex justify-around p-4">
+    <footer
+      className="flex justify-around p-4"
+      style={{ backgroundColor: "var(--highlight-bg)" }}
+    >
       {socials.map((social) => (
         <Link
           key={social.id}

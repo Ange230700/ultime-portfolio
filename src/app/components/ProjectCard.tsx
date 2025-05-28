@@ -25,9 +25,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   );
 
   const footer = (
-    <Link href={project.link}>
-      <Button label="Voir projet" icon="pi pi-arrow-right" className="w-full" />
-    </Link>
+    <div className="flex justify-center gap-1">
+      <Link href={project.link}>
+        <Button
+          label="Voir projet"
+          icon="pi pi-arrow-right"
+          className="w-full"
+        />
+      </Link>
+    </div>
   );
 
   return (
@@ -38,7 +44,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       footer={footer}
       className="transform transition md:w-[25rem]"
     >
-      <p className="m-0">{project.description}</p>
+      <p className="m-0 h-12 overflow-hidden text-ellipsis whitespace-nowrap">
+        {project.description}
+      </p>
     </Card>
   );
 };

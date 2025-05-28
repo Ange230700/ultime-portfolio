@@ -21,13 +21,10 @@ export default function Home() {
           création d&apos;experiences numériques.
         </p>
         <div className="flex justify-center gap-4">
-          <Link href="/about" className="rounded-lg px-6 py-3 transition">
+          <Link href="/about" className="p-button font-bold">
             En savoir plus
           </Link>
-          <Link
-            href="/projects"
-            className="rounded-lg border px-6 py-3 transition"
-          >
+          <Link href="/projects" className="p-button font-bold">
             Mes projets
           </Link>
         </div>
@@ -49,13 +46,13 @@ export default function Home() {
       <section>
         <h2 className="mb-6 text-center text-3xl font-semibold">Explorer</h2>
         <div className="flex flex-wrap justify-center gap-6">
-          <Link href="/skills" className="px-5 py-3 transition">
+          <Link href="/skills" className="p-button font-bold">
             Compétences
           </Link>
-          <Link href="/education" className="px-5 py-3 transition">
+          <Link href="/education" className="p-button font-bold">
             Formations
           </Link>
-          <Link href="/contact" className="px-5 py-3 transition">
+          <Link href="/contact" className="p-button font-bold">
             Contact
           </Link>
         </div>
