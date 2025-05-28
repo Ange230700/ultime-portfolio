@@ -2,6 +2,7 @@
 
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { ProjectCard } from "@/app/components/ProjectCard";
 import projects from "@/data/projects";
@@ -20,15 +21,12 @@ export default function Home() {
           création d&apos;experiences numériques.
         </p>
         <div className="flex justify-center gap-4">
-          <Link
-            href="/about"
-            className="rounded-lg px-6 py-3 transition hover:bg-blue-700"
-          >
+          <Link href="/about" className="rounded-lg px-6 py-3 transition">
             En savoir plus
           </Link>
           <Link
             href="/projects"
-            className="rounded-lg border px-6 py-3 transition hover:bg-blue-50"
+            className="rounded-lg border px-6 py-3 transition"
           >
             Mes projets
           </Link>
@@ -51,22 +49,13 @@ export default function Home() {
       <section>
         <h2 className="mb-6 text-center text-3xl font-semibold">Explorer</h2>
         <div className="flex flex-wrap justify-center gap-6">
-          <Link
-            href="/skills"
-            className="px-5 py-3 transition hover:bg-gray-200"
-          >
+          <Link href="/skills" className="px-5 py-3 transition">
             Compétences
           </Link>
-          <Link
-            href="/education"
-            className="px-5 py-3 transition hover:bg-gray-200"
-          >
+          <Link href="/education" className="px-5 py-3 transition">
             Formations
           </Link>
-          <Link
-            href="/contact"
-            className="px-5 py-3 transition hover:bg-gray-200"
-          >
+          <Link href="/contact" className="px-5 py-3 transition">
             Contact
           </Link>
         </div>

@@ -1,5 +1,6 @@
 // src\app\layout.tsx
 
+import React from "react";
 import type { Metadata } from "next";
 import { PrimeReactProvider } from "primereact/api";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -7,6 +8,8 @@ import "primeicons/primeicons.css";
 import "@/app/globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import { ThemeProvider } from "@/app/providers/ThemeProvider";
+import ThemeStyles from "@/app/components/ThemeStyles";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,24 +33,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="flex min-h-screen flex-col">
-      <head>
-        {/* eslint-disable-next-line @next/next/no-css-tags */}
-        <link
-          id="theme-link"
-          rel="stylesheet"
-          href="/themes/lara-dark-blue/theme.css"
-        ></link>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex flex-1 flex-col antialiased`}
       >
-        <PrimeReactProvider>
-          <header>
-            <Navbar />
-          </header>
-          <main className="flex flex-1 flex-col">{children}</main>
-          <Footer />
-        </PrimeReactProvider>
+        <ThemeProvider>
+          <ThemeStyles />
+          <PrimeReactProvider>
+            <header>
+              <Navbar />
+            </header>
+            <main className="flex flex-1 flex-col">{children}</main>
+            <Footer />
+          </PrimeReactProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

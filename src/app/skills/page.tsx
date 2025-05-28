@@ -2,6 +2,7 @@
 
 "use client";
 
+import React from "react";
 import { Chip } from "primereact/chip";
 import {
   SiTypescript,

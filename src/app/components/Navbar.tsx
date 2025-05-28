@@ -2,12 +2,13 @@
 
 "use client";
 
-import { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Menubar } from "primereact/menubar";
 import { MenuItem } from "primereact/menuitem";
-import ThemeSwitcher from "@/app/components/ThemeSwitcher";
+import { Button } from "primereact/button";
+import { useTheme } from "@/app/hooks/useTheme";
 
 type NavbarMenuItem = MenuItem & {
   label?: string;
@@ -16,7 +17,7 @@ type NavbarMenuItem = MenuItem & {
 
 export default function Navbar() {
   const router = useRouter();
-  const [theme, setTheme] = useState("lara-light-blue");
+  const { theme, toggle } = useTheme();
   const items: NavbarMenuItem[] = [
     {
       label: "Compétences",
@@ -59,13 +60,20 @@ export default function Navbar() {
     <Link
       href="/"
       passHref
-      className="text-2xl font-bold transition-colors duration-200 hover:text-blue-300"
+      className="text-2xl font-bold transition-colors duration-200"
     >
       Ange KOUAKOU
     </Link>
   );
 
-  const end = <ThemeSwitcher theme={theme} setTheme={setTheme} />;
+  const end = (
+    <Button
+      icon={theme === "dark" ? "pi pi-sun" : "pi pi-moon"}
+      rounded
+      aria-label="Toggle theme"
+      onClick={toggle}
+    />
+  );
 
   return (
     <div className="card">

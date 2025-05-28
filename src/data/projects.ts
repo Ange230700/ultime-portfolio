@@ -21,7 +21,7 @@ const projects: Project[] = [
     subtitle: "Plateforme de streaming vidéo",
     description: "La meilleure expérience de streaming de vidéos.",
     image: streamiaScreenshot,
-    link: "https://streamia.vercel.app/",
+    link: "https://ultime-streamia.vercel.app/",
   },
   {
     id: 1,

@@ -2,6 +2,8 @@
 
 "use client";
 
+import React from "react";
+
 export default function AboutPage() {
   return (
     <div className="mx-auto flex max-w-3xl flex-1 flex-col space-y-6 p-4">
