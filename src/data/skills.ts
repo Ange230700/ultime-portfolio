@@ -75,3 +75,9 @@ export const softSkills: string[] = [
   "Rigueur",
   "Agile/SCRUM",
 ];
+
+export const uiFrameworks: Skill[] = [
+  { label: "PrimeReact" },
+  { label: "PrimeVue" },
+  { label: "PrimeNG" },
+];

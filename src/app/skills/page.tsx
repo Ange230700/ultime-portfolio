@@ -12,6 +12,9 @@ import {
   SiSpringboot,
   SiMysql,
   SiPostgresql,
+  SiPrimereact,
+  SiPrimevue,
+  SiPrimeng,
 } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
 import {
@@ -35,6 +38,7 @@ import {
   VDPTechStack,
   ASMTechStack,
   softSkills,
+  uiFrameworks,
 } from "@/data/skills";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -53,6 +57,9 @@ const iconMap: Record<string, React.ReactNode> = {
   "Spring Boot": <SiSpringboot />,
   MySQL: <SiMysql />,
   PostgreSQL: <SiPostgresql />,
+  PrimeReact: <SiPrimereact />,
+  PrimeVue: <SiPrimevue />,
+  PrimeNG: <SiPrimeng />,
 };
 
 type SkillItem = { label: string; icon?: string };
@@ -123,6 +130,13 @@ export default function SkillsPage() {
         <h2 className="mb-4 text-xl font-bold">Frameworks Front-end</h2>
         <div className="flex flex-wrap gap-4">
           {frontFrameworks.map((fw) => renderSkill(fw))}
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-4 text-xl font-bold">Frameworks UI</h2>
+        <div className="flex flex-wrap gap-4">
+          {uiFrameworks.map((fw) => renderSkill(fw))}
         </div>
       </section>
 
