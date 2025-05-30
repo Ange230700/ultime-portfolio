@@ -21,11 +21,12 @@ export default function Home() {
           création d&apos;experiences numériques.
         </p>
         <div className="flex justify-center gap-4">
-          <Link href="/about" className="p-button font-bold">
-            En savoir plus
-          </Link>
-          <Link href="/projects" className="p-button font-bold">
-            Mes projets
+          <Link
+            href="https://ultime-resume.vercel.app/resume.pdf"
+            className="p-button font-bold"
+            download
+          >
+            Télécharger CV
           </Link>
         </div>
       </section>
@@ -33,7 +34,7 @@ export default function Home() {
       {/* Featured Projects Preview */}
       <section>
         <h2 className="mb-6 text-center text-3xl font-semibold">
-          Projets stars
+          Projets préférés
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {featuredProjects.map((proj) => (
