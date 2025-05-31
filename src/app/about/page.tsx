@@ -35,9 +35,9 @@ export default function AboutPage() {
       <p className="text-lg leading-relaxed">
         J’ai travaillé sur plusieurs projets en équipe, comme une application
         développé avec Vite + TypeScript + React pour visualiser les données des
-        personnes disparues selon les données du FBI. Ce projet m’a permis de
-        travailler sur les appels API, tout en développant mon goût pour le
-        travail en équipe et les principes de l’agilité.
+        personnes disparues enregistrées dans le système du FBI. Ce projet m’a
+        permis de travailler sur les appels API, tout en développant mon goût
+        pour le travail en équipe et les principes de l’agilité.
       </p>
 
       <p className="text-lg leading-relaxed">
