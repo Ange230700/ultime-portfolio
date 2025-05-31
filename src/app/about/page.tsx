@@ -10,11 +10,10 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold">À propos de moi</h1>
 
       <p className="text-lg leading-relaxed">
-        Bonjour, je suis <strong>Ange KOUAKOU</strong>, actuellement apprenant à
-        l’ADA Tech School. Ma progression dans la programmation a débuté en
-        2016-2017 au lycée où j&apos;apprenais les bases du langage C. J’étais
-        captivé par la possibilité de transformer des concepts mathématiques en
-        réalisations concrètes à l&apos;écran.
+        Actuellement apprenant à l’ADA Tech School. Ma progression dans la
+        programmation a débuté en 2016-2017 au lycée où j&apos;apprenais les
+        bases du langage C. J’étais captivé par la possibilité de transformer
+        des concepts mathématiques en réalisations concrètes à l&apos;écran.
       </p>
 
       <p className="text-lg leading-relaxed">
@@ -30,24 +29,22 @@ export default function AboutPage() {
         mois en développement web à la Wild Code School. Cette expérience m’a
         conforté dans mon choix de devenir développeur web. Aujourd’hui, à ADA
         Tech School, j’aiguises mes compétences en technologies frontend et
-        backend, notamment TypeScript, PHP, Java et Python.
+        backend, notamment TypeScript, Java, PHP et Python.
       </p>
 
       <p className="text-lg leading-relaxed">
         J’ai travaillé sur plusieurs projets en équipe, comme une application
-        PHP pour gérer et planifier les opérations de recyclage d&apos;une
-        association. Ce projet m’a permis de maîtriser l’authentification et la
-        gestion des droits utilisateur, tout en développant mon goût pour le
+        développé avec Vite + TypeScript + React pour visualiser les données des
+        personnes disparues selon les données du FBI. Ce projet m’a permis de
+        travailler sur les appels API, tout en développant mon goût pour le
         travail en équipe et les principes de l’agilité.
       </p>
 
       <p className="text-lg leading-relaxed">
         Dans le but d’obtenir la certification RNCP de niveau 6 en tant que
         concepteur-développeur d’applications, je suis à la recherche d’une
-        alternance de 12 à 36 mois (quatre jours en entreprise et un jour en
-        formation) à partir de juin 2025. Rejoindre votre entreprise serait pour
-        moi l’occasion de mettre en pratique mes compétences fullstack et de
-        contribuer à des projets concrets.
+        alternance de 12 ou 36 mois (quatre jours en entreprise et un jour en
+        formation) à partir de juin 2025.
       </p>
 
       <p className="text-lg leading-relaxed">
