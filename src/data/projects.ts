@@ -4,6 +4,7 @@ import dafScreenshot from "../../public/images/DAF.png";
 import quizScreenshot from "../../public/images/quiz.png";
 import morseScreenshot from "../../public/images/morseTranslator.png";
 import streamiaScreenshot from "../../public/images/streamia.png";
+import mastermindScreenshot from "../../public/images/mastermind.png";
 
 export interface Project {
   id: number;
@@ -48,12 +49,22 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Quiz",
+    title: "Quiz (Void Trivia)",
     subtitle: "Testez vos connaissances",
     description: "Un quiz interactif pour s’amuser et apprendre.",
     image: quizScreenshot,
-    link: "https://quizz-two-delta.vercel.app/",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    link: "https://void-quiz.vercel.app/",
+    technologies: ["TypeScript", "Angular", "TailwindCSS", "PrimeNg"],
+  },
+  {
+    id: 5,
+    title: "Mastermind",
+    subtitle: "Jeu de logique",
+    description:
+      "Un jeu de logique interactif pour améliorer les capacités cognitives tout en s'amusant.",
+    image: mastermindScreenshot,
+    link: "https://ultime-mastermind.vercel.app/",
+    technologies: ["TypeScript", "Vite", "Vue", "TailwindCSS", "PrimeVue"],
   },
   {
     id: 3,
