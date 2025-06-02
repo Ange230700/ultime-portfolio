@@ -10,7 +10,7 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold">À propos de moi</h1>
 
       <p className="text-lg leading-relaxed">
-        Actuellement apprenant à l’ADA Tech School. Ma progression dans la
+        Actuellement apprenant à ADA Tech School. Ma progression dans la
         programmation a débuté en 2016-2017 au lycée où j&apos;apprenais les
         bases du langage C. J’étais captivé par la possibilité de transformer
         des concepts mathématiques en réalisations concrètes à l&apos;écran.
