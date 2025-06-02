@@ -5,6 +5,7 @@ import quizScreenshot from "../../public/images/quiz.png";
 import morseScreenshot from "../../public/images/morseTranslator.png";
 import streamiaScreenshot from "../../public/images/streamia.png";
 import mastermindScreenshot from "../../public/images/mastermind.png";
+import motusScreenshot from "../../public/images/motus.png";
 
 export interface Project {
   id: number;
@@ -65,6 +66,16 @@ const projects: Project[] = [
     image: mastermindScreenshot,
     link: "https://ultime-mastermind.vercel.app/",
     technologies: ["TypeScript", "Vite", "Vue", "TailwindCSS", "PrimeVue"],
+  },
+  {
+    id: 6,
+    title: "Motus",
+    subtitle: "Jeu de mots",
+    description:
+      "Un jeu de mots interactif pour améliorer son orthographe tout en s'amusant.",
+    image: motusScreenshot,
+    link: "https://ultime-motus.vercel.app/",
+    technologies: ["TypeScript", "Nuxt", "Vue", "TailwindCSS", "PrimeVue"],
   },
   {
     id: 3,
