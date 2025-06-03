@@ -44,7 +44,7 @@ export default function AboutPage() {
         Dans le but d’obtenir la certification RNCP de niveau 6 en tant que
         concepteur-développeur d’applications, je suis à la recherche d’une
         alternance de 12 ou 36 mois (quatre jours en entreprise et un jour en
-        formation) à partir de juin 2025.
+        formation).
       </p>
 
       <p className="text-lg leading-relaxed">
