@@ -6,6 +6,7 @@ import morseScreenshot from "../../public/images/morseTranslator.png";
 import streamiaScreenshot from "../../public/images/streamia.png";
 import mastermindScreenshot from "../../public/images/mastermind.png";
 import motusScreenshot from "../../public/images/motus.png";
+import voidnullScreenshot from "../../public/images/voidnull.png";
 
 export interface Project {
   id: number;
@@ -31,6 +32,23 @@ const projects: Project[] = [
       "React",
       "PrimeReact",
       "TailwindCSS",
+    ],
+  },
+  {
+    id: 7,
+    title: "VoidNull",
+    subtitle: "Simple API REST CRUD",
+    description: "Créez et modifiez des données avec une API REST.",
+    image: voidnullScreenshot,
+    link: "https://void-null-front.vercel.app/",
+    technologies: [
+      "TypeScript",
+      "Angular",
+      "PrimeNg",
+      "TailwindCSS",
+      "NestJs",
+      "Prisma",
+      "MySQL",
     ],
   },
   {
