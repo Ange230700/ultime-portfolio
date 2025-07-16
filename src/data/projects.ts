@@ -7,6 +7,8 @@ import streamiaScreenshot from "../../public/images/streamia.png";
 import mastermindScreenshot from "../../public/images/mastermind.png";
 import motusScreenshot from "../../public/images/motus.png";
 import voidnullScreenshot from "../../public/images/voidnull.png";
+import abyssScreenshot from "../../public/images/Abyss.png";
+import vacuumScreenshot from "../../public/images/Vacuum.png";
 
 export interface Project {
   id: number;
@@ -35,18 +37,36 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 7,
-    title: "VoidNull",
-    subtitle: "Simple API REST CRUD",
-    description: "Créez et modifiez des données avec une API REST.",
-    image: voidnullScreenshot,
-    link: "https://void-null-front.vercel.app/",
+    id: 8,
+    title: "Abyss",
+    subtitle: "Plateforme de vente de meubles",
+    description: "La meilleure expérience de vente de meubles.",
+    image: abyssScreenshot,
+    link: "https://abyss-front-two.vercel.app/",
     technologies: [
       "TypeScript",
       "Angular",
       "PrimeNg",
       "TailwindCSS",
       "NestJs",
+      "Prisma",
+      "MySQL",
+    ],
+  },
+  {
+    id: 9,
+    title: "Vacuum",
+    subtitle: "Back office",
+    description: "CRUD pour la gestion des collectes.",
+    image: vacuumScreenshot,
+    link: "https://cleared-front.vercel.app",
+    technologies: [
+      "TypeScript",
+      "Vite",
+      "Vue",
+      "PrimeVue",
+      "TailwindCSS",
+      "Express",
       "Prisma",
       "MySQL",
     ],
@@ -94,6 +114,23 @@ const projects: Project[] = [
     image: motusScreenshot,
     link: "https://ultime-motus.vercel.app/",
     technologies: ["TypeScript", "Nuxt", "Vue", "TailwindCSS", "PrimeVue"],
+  },
+  {
+    id: 7,
+    title: "VoidNull",
+    subtitle: "Simple API REST CRUD",
+    description: "Créez et modifiez des données avec une API REST.",
+    image: voidnullScreenshot,
+    link: "https://void-null-front.vercel.app/",
+    technologies: [
+      "TypeScript",
+      "Angular",
+      "PrimeNg",
+      "TailwindCSS",
+      "NestJs",
+      "Prisma",
+      "MySQL",
+    ],
   },
   {
     id: 3,
