@@ -12,6 +12,7 @@ import vacuumScreenshot from "../../public/images/Vacuum.png";
 import nihilScreenshot from "../../public/images/nihil.png";
 import shakaScreenshot from "../../public/images/shaka.png";
 import chefitupScreenshot from "../../public/images/chefitup.png";
+import rpsScreenshot from "../../public/images/rps.png";
 
 export interface Project {
   id: number;
@@ -94,7 +95,7 @@ const projects: Project[] = [
   {
     id: 11,
     title: "Shaka",
-    subtitle: "Application Surfspots",
+    subtitle: "Application mobile",
     description: "Trouvez les meilleurs spots de surf partout dans le monde.",
     image: shakaScreenshot,
     link: "https://shaka-frontend.vercel.app/",
@@ -123,6 +124,16 @@ const projects: Project[] = [
       "PrimeReact",
       "TailwindCSS",
     ],
+  },
+  {
+    id: 13,
+    title: "RPS",
+    subtitle: "Pierre-Feuille-Ciseaux",
+    description:
+      "Essayez de gagner le jeu de pierre-feuille-ciseaux contre l'ordinateur.",
+    image: rpsScreenshot,
+    link: "https://rps-pink-psi.vercel.app/#/rps",
+    technologies: ["Vite", "HTML", "TypeScript", "TailwindCSS"],
   },
   {
     id: 2,
@@ -154,6 +165,15 @@ const projects: Project[] = [
     technologies: ["TypeScript", "Nuxt", "Vue", "TailwindCSS", "PrimeVue"],
   },
   {
+    id: 3,
+    title: "Morse Translator",
+    subtitle: "Convertisseur Morse",
+    description: "Traducteur vers et depuis le code Morse.",
+    image: morseScreenshot,
+    link: "https://04-can-you-speak-morse.vercel.app/",
+    technologies: ["HTML", "CSS", "JavaScript"],
+  },
+  {
     id: 7,
     title: "VoidNull",
     subtitle: "Simple API REST CRUD",
@@ -169,15 +189,6 @@ const projects: Project[] = [
       "Prisma",
       "MySQL",
     ],
-  },
-  {
-    id: 3,
-    title: "Morse Translator",
-    subtitle: "Convertisseur Morse",
-    description: "Traducteur vers et depuis le code Morse.",
-    image: morseScreenshot,
-    link: "https://04-can-you-speak-morse.vercel.app/",
-    technologies: ["HTML", "CSS", "JavaScript"],
   },
 ];
 
