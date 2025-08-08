@@ -15,6 +15,10 @@ import {
   SiPrimereact,
   SiPrimevue,
   SiPrimeng,
+  SiNuxtdotjs,
+  SiNx,
+  SiPrisma,
+  SiJavascript,
 } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
 import {
@@ -32,11 +36,6 @@ import {
   frontFrameworks,
   backFrameworks,
   databases,
-  NMTechStack,
-  REMTechStack,
-  VSMTechStack,
-  VDPTechStack,
-  ASMTechStack,
   softSkills,
   uiFrameworks,
 } from "@/data/skills";
@@ -60,6 +59,10 @@ const iconMap: Record<string, React.ReactNode> = {
   PrimeReact: <SiPrimereact />,
   PrimeVue: <SiPrimevue />,
   PrimeNG: <SiPrimeng />,
+  "Nuxt.js": <SiNuxtdotjs />,
+  Nx: <SiNx />,
+  Prisma: <SiPrisma />,
+  JavaScript: <SiJavascript />,
 };
 
 type SkillItem = { label: string; icon?: string };
@@ -97,14 +100,6 @@ export default function SkillsPage() {
     }
     return <Chip key={skill.label} label={skill.label} {...baseProps} />;
   };
-
-  const techStacks = [
-    { label: "NM", skills: NMTechStack },
-    { label: "REM", skills: REMTechStack },
-    { label: "VSM", skills: VSMTechStack },
-    { label: "VDP", skills: VDPTechStack },
-    { label: "ASM", skills: ASMTechStack },
-  ];
 
   return (
     <div className="flex flex-1 flex-col p-4">
@@ -152,18 +147,6 @@ export default function SkillsPage() {
         <div className="flex flex-wrap gap-4">
           {databases.map((db) => renderSkill(db))}
         </div>
-      </section>
-
-      <section className="mb-8">
-        <h2 className="mb-4 text-xl font-bold">Tech Stacks</h2>
-        {techStacks.map((stack) => (
-          <div key={stack.label} className="mb-4">
-            <h3 className="mb-2 font-semibold">{stack.label}</h3>
-            <div className="flex flex-wrap gap-4">
-              {stack.skills.map((skill) => renderSkill(skill))}
-            </div>
-          </div>
-        ))}
       </section>
 
       <section>

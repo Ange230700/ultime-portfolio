@@ -10,10 +10,10 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold">À propos de moi</h1>
 
       <p className="text-lg leading-relaxed">
-        Actuellement apprenant à ADA Tech School. Ma progression dans la
-        programmation a débuté en 2016-2017 au lycée où j&apos;apprenais les
-        bases du langage C. J’étais captivé par la possibilité de transformer
-        des concepts mathématiques en réalisations concrètes à l&apos;écran.
+        Ma progression dans la programmation a débuté en 2016-2017 au lycée où
+        j&apos;apprenais les bases du langage C. J’étais captivé par la
+        possibilité de transformer des concepts mathématiques en réalisations
+        concrètes à l&apos;écran.
       </p>
 
       <p className="text-lg leading-relaxed">
@@ -29,7 +29,7 @@ export default function AboutPage() {
         mois en développement web à la Wild Code School. Cette expérience m’a
         conforté dans mon choix de devenir développeur web. Aujourd’hui, à ADA
         Tech School, j’aiguises mes compétences en technologies frontend et
-        backend, notamment TypeScript, Java, PHP et Python.
+        backend, notamment dans l&apos;écosystème TypeScript/Javascript.
       </p>
 
       <p className="text-lg leading-relaxed">
@@ -43,8 +43,9 @@ export default function AboutPage() {
       <p className="text-lg leading-relaxed">
         Dans le but d’obtenir la certification RNCP de niveau 6 en tant que
         concepteur-développeur d’applications, je suis à la recherche d’une
-        alternance de 12 ou 36 mois (quatre jours en entreprise et un jour en
-        formation).
+        alternance de 12 à 36 mois (quatre jours en entreprise et un jour en
+        formation) ou d&apos;un stage de minimum 6 mois pour Septembre/Octobre
+        2025.
       </p>
 
       <p className="text-lg leading-relaxed">

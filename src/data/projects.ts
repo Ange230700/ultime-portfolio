@@ -9,6 +9,9 @@ import motusScreenshot from "../../public/images/motus.png";
 import voidnullScreenshot from "../../public/images/voidnull.png";
 import abyssScreenshot from "../../public/images/Abyss.png";
 import vacuumScreenshot from "../../public/images/Vacuum.png";
+import nihilScreenshot from "../../public/images/nihil.png";
+import shakaScreenshot from "../../public/images/shaka.png";
+import chefitupScreenshot from "../../public/images/chefitup.png";
 
 export interface Project {
   id: number;
@@ -70,6 +73,41 @@ const projects: Project[] = [
       "Prisma",
       "MySQL",
     ],
+  },
+  {
+    id: 10,
+    title: "Nihil",
+    subtitle: "Réseau social",
+    description: "Un réseau social moderne avec microservices et monorepo.",
+    image: nihilScreenshot,
+    link: "https://nihil-frontend.vercel.app/",
+    technologies: [
+      "TypeScript",
+      "React",
+      "PrimeReact",
+      "Express",
+      "Prisma",
+      "Docker",
+      "Nx",
+    ],
+  },
+  {
+    id: 11,
+    title: "Shaka",
+    subtitle: "Application Surfspots",
+    description: "Trouvez les meilleurs spots de surf partout dans le monde.",
+    image: shakaScreenshot,
+    link: "https://shaka-frontend.vercel.app/",
+    technologies: ["TypeScript", "React Native", "Expo", "NestJS", "Prisma"],
+  },
+  {
+    id: 12,
+    title: "Chef It Up",
+    subtitle: "Plateforme de recettes",
+    description: "Découvrez et partagez des recettes de cuisine.",
+    image: chefitupScreenshot,
+    link: "https://chef-it-up-tau.vercel.app/",
+    technologies: ["TypeScript", "Nuxt.js", "PrimeVue", "Prisma"],
   },
   {
     id: 1,
